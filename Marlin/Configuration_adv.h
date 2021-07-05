@@ -622,10 +622,10 @@
 #define DUAL_X_CARRIAGE
 #if ENABLED(DUAL_X_CARRIAGE)
   #define X1_MIN_POS X_MIN_POS    // Set to X_MIN_POS
-  #define X1_MAX_POS X_BED_SIZE   // Set a maximum so the first X-carriage can't hit the parked second X-carriage
-  #define X2_MIN_POS    0         // Set a minimum to ensure the  second X-carriage can't hit the parked first X-carriage
-  #define X2_MAX_POS  281.50      // Set this to the distance between toolheads when both heads are homed
-  #define X2_HOME_DIR   1         // Set to 1. The second X-carriage always homes to the maximum endstop position
+  #define X1_MAX_POS X_MAX_POS    // Set a maximum so the first X-carriage can't hit the parked second X-carriage
+  #define X2_MIN_POS  20          // Set a minimum to ensure the  second X-carriage can't hit the parked first X-carriage
+  #define X2_MAX_POS 295          // Set this to the distance between toolheads when both heads are homed
+  #define X2_HOME_DIR 1           // Set to 1. The second X-carriage always homes to the maximum endstop position
   #define X2_HOME_POS X2_MAX_POS  // Default X2 home position. Set to X2_MAX_POS.
                       // However: In this mode the HOTEND_OFFSET_X value for the second extruder provides a software
                       // override for X2_HOME_POS. This also allow recalibration of the distance between the two endstops
@@ -636,7 +636,7 @@
   #define DEFAULT_DUAL_X_CARRIAGE_MODE DXC_AUTO_PARK_MODE
 
   // Default x offset in duplication mode (typically set to half print bed width)
-  #define DEFAULT_DUPLICATION_X_OFFSET 105
+  #define DEFAULT_DUPLICATION_X_OFFSET X_BED_SIZE / 2
 #endif
 
 // Activate a solenoid on the active extruder with M380. Disable all with M381.
@@ -1739,10 +1739,10 @@
   // Note: this values cannot be calibrated and have to be set manually
   #if ENABLED(PROBE_TEMP_COMPENSATION)
     // Park position to wait for probe cooldown
-    #define PTC_PARK_POS   { 0, 0, 100 }
+    #define PTC_PARK_POS   { X_MIN_POS, Y_MIN_POS, Z_MAX_POS }
 
     // Probe position to probe and wait for probe to reach target temperature
-    #define PTC_PROBE_POS  { 90, 100 }
+    #define PTC_PROBE_POS  { X_BED_SIZE / 2, Y_BED_SIZE / 2 }
 
     // Enable additional compensation using hotend temperature
     // Note: this values cannot be calibrated automatically but have to be set manually
