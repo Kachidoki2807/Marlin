@@ -35,7 +35,7 @@
 #define I2C_EEPROM
 #define MARLIN_EEPROM_SIZE                0x2000  // 8KB (24C64 ... 64Kb = 8KB)
 
-#define TP                                        // Enable to define servo and probe pins
+//#define TP                                        // Enable to define servo and probe pins
 
 //
 // Servos
@@ -53,7 +53,8 @@
 #define X_MAX_PIN                           PG14
 #define Y_MIN_PIN                           PC13
 #define Y_MAX_PIN                           PG9
-#define Z_MIN_PIN                           PE0
+//#define Z_MIN_PIN                           PE0
+#define Z_MIN_PIN                           PH11
 #define Z_MAX_PIN                           PD3
 
 //
@@ -231,7 +232,7 @@
 //
 #define TEMP_0_PIN                          PC1   // T1 <-> E0
 #define TEMP_1_PIN                          PC2   // T2 <-> E1
-#define TEMP_2_PIN                          PC3   // T3 <-> E2
+//#define TEMP_2_PIN                          PC3   // T3 <-> E2
 
 #define TEMP_3_PIN                          PA3   // T4 <-> E3
 #define TEMP_4_PIN                          PF9   // T5 <-> E4
@@ -240,6 +241,7 @@
 #define TEMP_7_PIN                          PF5   // T8 <-> E7
 
 #define TEMP_BED_PIN                        PC0   // T0 <-> Bed
+#define TEMP_PROBE_PIN                      PC3   // T3 <-> E2
 
 // SPI for Max6675 or Max31855 Thermocouple
 // Uses a separate SPI bus
@@ -260,7 +262,7 @@
 //
 #define HEATER_0_PIN                        PB1   // Heater0
 #define HEATER_1_PIN                        PA1   // Heater1
-#define HEATER_2_PIN                        PB0   // Heater2
+//#define HEATER_2_PIN                        PB0   // Heater2
 
 #define HEATER_3_PIN                        PD15  // Heater3
 #define HEATER_4_PIN                        PD13  // Heater4
@@ -274,7 +276,8 @@
 #define FAN1_PIN                            PE6   // Fan1
 #define FAN2_PIN                            PC8   // Fan2
 
-#define FAN3_PIN                            PI5   // Fan3
+//#define FAN3_PIN                            PI5   // Fan3
+#define FAN3_PIN                            PB0   // Fan3
 #define FAN4_PIN                            PE9   // Fan4
 #define FAN5_PIN                            PE11  // Fan5
 //#define FAN6_PIN                          PC9   // Fan6
